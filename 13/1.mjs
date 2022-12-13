@@ -2,7 +2,12 @@ import { readFile } from "node:fs/promises";
 
 const data = (await readFile("./input.txt")).toString();
 
-const rows = data.split("\n\n").map((row) => row.split("\n").map(eval));
+const rows = data.split("\n\n").map((row) =>
+  row
+    .split("\n")
+    .filter((a) => a)
+    .map((row) => JSON.parse(row))
+);
 
 const arr = Array.isArray;
 const num = Number.isInteger;

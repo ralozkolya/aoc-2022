@@ -5,7 +5,7 @@ const data = (await readFile("./input.txt")).toString();
 const rows = data
   .split("\n")
   .filter((a) => a)
-  .map(eval);
+  .map((row) => JSON.parse(row));
 
 const dividers = [[[2]], [[6]]];
 
