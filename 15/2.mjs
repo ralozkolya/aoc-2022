@@ -5,7 +5,6 @@ const data = readFileSync("./input.txt").toString();
 const { abs } = Math;
 
 const bound = 4000000;
-const edges = {};
 
 class Sensor {
   constructor([sx, sy], [bx, by]) {
@@ -39,8 +38,7 @@ class Sensor {
             continue outer;
           }
         }
-        const count = edges[`${point.x}, ${point.y}`] ?? 0;
-        edges[`${point[0]}, ${point[1]}`] = count + 1;
+        return point[0] * bound + point[1];
       }
     }
   }
@@ -58,7 +56,9 @@ for (const line of lines) {
 }
 
 for (const sensor of sensors) {
-  sensor.checkEdges();
+  const point = sensor.checkEdges();
+  if (point) {
+    console.log(point);
+    break;
+  }
 }
-
-console.log(edges);
