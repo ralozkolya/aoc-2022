@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 
-const data = readFileSync("./test.txt").toString();
+const data = readFileSync("./input.txt").toString();
 
 const WIDTH = 7;
 
